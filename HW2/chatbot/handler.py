@@ -19,10 +19,10 @@ def handle(req):
     
     elif "figlet" in user_question:
         figlet_text = user_question.replace("figlet", "").strip()
-        gateway_invoke_url = 'http://127.0.0.1:8080/function/figlet'
+        gateway_invoke_url = 'http://10.62.0.4:8080/function/figlet'
 	response = requests.post(gateway_invoke_url, data=figlet_text)
 	if response.status_code==200:
-            return response
+            return response.text
         else:
             return "Error, received error code."
     
